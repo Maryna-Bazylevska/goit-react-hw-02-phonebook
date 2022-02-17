@@ -1,4 +1,5 @@
 import { List, Text, Button } from './ContactList.styles';
+import PropTypes from 'prop-types';
 const ContactList = ({ items, onDeleteContact }) => (
   <List>
     {items.map(contact => (
@@ -17,4 +18,8 @@ const ContactList = ({ items, onDeleteContact }) => (
     ))}
   </List>
 );
+ContactList.prototype = {
+  items: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  onDeleteContact: PropTypes.func.isRequired,
+};
 export default ContactList;
